@@ -1,0 +1,50 @@
+/* Navbar */
+.navbar {
+    background-color: #1eaf7f;
+    color: white;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.cart-widget {
+    font-size: 18px;
+    
+}
+
+/* Contenedor */
+.contenedor {
+    padding: 24px;
+}
+
+.titulo {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.descripcion {
+    font-size: 16px;
+    color: #333;
+}
