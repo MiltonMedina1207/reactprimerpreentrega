@@ -1,15 +1,26 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Contenedor from './components/Contenedor';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NavbarReactBootstrap from './components/NavbarReactBootstrap';
+import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
-    <div>
-      <Navbar />
-      <Contenedor mensaje="¡Bienvenido a Zapam, para que pises fuerte y con estilo!" />
-    </div>
+    <BrowserRouter>
+      <NavbarReactBootstrap />
+      <Routes>
+        <Route path="/" element={<ItemListContainer mensaje="¡Bienvenido a Zapam!" />} />
+        <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+        
+      </Routes>
+    </BrowserRouter>
   );
 };
 
 export default App;
+
+
+
+
