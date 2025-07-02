@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 //import { getProductos } from '../services/AsyncService';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, where,query} from 'firebase/firestore';
 import { db } from '../servicio/firebase';
 
 const ItemListContainer = ({ mensaje }) => {
@@ -10,7 +10,7 @@ const ItemListContainer = ({ mensaje }) => {
   const { marcaId } = useParams();
 
   useEffect(() => {
-    const productsCollection = collection(db, "zapatillas")
+    const productsCollection =  marcaId ? query(collection(db, "zapatillas"),where("marca","==",marcaId)): collection(db, "zapatillas")
     getDocs(productsCollection)
       .then((res) => {
         const list = res.docs.map((doc) => {
@@ -23,7 +23,7 @@ const ItemListContainer = ({ mensaje }) => {
         console.log(list)
       })
     .catch((error)=> console.log(error))
- },[])
+ },[marcaId])
  
   //useEffect(() => {
   //getProductos()
